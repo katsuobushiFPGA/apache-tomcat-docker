@@ -1,8 +1,11 @@
 FROM tomcat:9.0.85-jdk11-corretto
 
-RUN yum install -y httpd httpd-ajp
+RUN yum install -y httpd httpd-ajp mod_ssl
 
-COPY httpd/httpd-ajp.conf /etc/httpd/conf.d/
+COPY cert/localhost.crt /etc/pki/tls/certs/
+COPY cert/localhost.key /etc/pki/tls/private/
+
+COPY httpd/*.conf /etc/httpd/conf.d/
 
 COPY tomcat/server.xml /usr/local/tomcat/conf/
 

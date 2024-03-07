@@ -4,3 +4,4 @@ services:
       context: ./web
     ports:
       - 80:80
+      - 443:443
