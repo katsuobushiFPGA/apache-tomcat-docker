@@ -1,6 +1,6 @@
 FROM tomcat:9.0.85-jdk11-corretto
 
-RUN yum install openssl
+RUN yum install -y openssl
 
 RUN yum install -y httpd httpd-ajp mod_ssl
 
